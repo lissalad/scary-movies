@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Project Title</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="/static/style.css">
-    </head>
-    <body>
-        <!-- Add base html here. -->
-        
-        {% block content %}{% endblock %}
-    </body>
+  <head>
+    <title>Project Title</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body class="bg-black text-white">
+    {% include "header.html" %}
+    <main class="bg-gradient-to-t from-rose-500 to-black p-5">
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+
+  <style>
+    @font-face {
+      font-family: horrorFont;
+      src: url(/static/fonts/horror.woff);
+    }
+  </style>
 </html>
