@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+
+<form method="POST" action="{{ url_for('main.new_tag') }}">
+  {{ form.csrf_token }}
+
+  <fieldset>
+    <legend>New Tag</legend>
+
+    {{ form.name.label }}
+    {{ form.name }}
+
+    <ul>
+      {% for error in form.name.errors %}
+      <li class="error">{{ error }}</li>
+      {% endfor %}
+    </ul>
+
+    {{ form.submit }}
+  </fieldset>
+</form>
+
+{% endblock %}

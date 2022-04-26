@@ -1,44 +1,38 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
-<h1>New Item</h1>
+<form method="POST" action="{{ url_for('main.new_movie') }}">
+  {{ form.csrf_token }}
 
-<form method="POST" action="{{ url_for('auth.new_movie') }}">
   <fieldset>
+    <legend>New Movie</legend>
 
-        <legend>New Movie</legend>
+    {{ form.title.label }} {{ form.title }}
 
-        {{ form.title.label }}
-        {{ form.title }}
+    <ul>
+      {% for error in form.title.errors %}
+      <li class="error">{{ error }}</li>
+      {% endfor %}
+    </ul>
 
-        <ul>
-          {% for error in form.title.errors %}
-            <li class="error">{{ error }}</li>
-          {% endfor %}
-        </ul>
-        
-        {{ form.release_date.label }}
-        {{ form.release_data }}
+    {{ form.release_date.label }}
+    <input type="date" name="release_date" />
 
-        <ul>
-          {% for error in form.price.errors %}
-              <li class="error">{{ error }}</li>
-          {% endfor %}
-        </ul>
+    <ul>
+      {% for error in form.release_date.errors %}
+      <li class="error">{{ error }}</li>
+      {% endfor %}
+    </ul>
 
-        {{ form.tags.label }}
-        {{ form.tags }}
+    {{ form.tags.label }} {{ form.tags }}
 
-        <ul>
-          {% for error in form.tags.errors %}
-            <li class="error">{{ error }}</li>
-          {% endfor %}
-        </ul>
+    <ul>
+      {% for error in form.tags.errors %}
+      <li class="error">{{ error }}</li>
+      {% endfor %}
+    </ul>
 
-        {{ form.submit }}
-
-      </fieldset>
+    {{ form.submit }}
+  </fieldset>
 </form>
-
 
 {% endblock %}

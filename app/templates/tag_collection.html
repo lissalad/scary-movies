@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="text-blue-300">Tags</h1>
+<div>
+  {% for movie in tag %}
+  <div>
+    <p>{{ movie.title }}</p>
+    <p>{{ movie.release_data }}</p>
+    <ul>
+      {% for t in movie.tags %}
+      <li>{{ t.name }}</li>
+    </ul>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

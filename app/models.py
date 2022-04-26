@@ -12,11 +12,11 @@ class FormEnum(enum.Enum):
     def __str__(self):
         return str(self.value)
 
-class Tags(enum.Enum):
-    ALIEN = 'Alien'
-    SLASHER = 'Slasher'
-    PARANORMAL = 'Paranormal'
-    PSYCHOLOGICAL = 'Psychological'
+# class Tags(db.Model):
+#     ALIEN = 'Alien'
+#     SLASHER = 'Slasher'
+#     PARANORMAL = 'Paranormal'
+#     PSYCHOLOGICAL = 'Psychological'
 
 class Movie(db.Model):
   id = db.Column(db.Integer, primary_key=True)
@@ -25,12 +25,15 @@ class Movie(db.Model):
 
   tags = db.relationship('Tag', secondary='movie_tags', back_populates='movies')
 
-# class Tag(db.Model):
-#   id = db.Column(db.Integer, primary_key=True)
-#   name = db.Column(db.String(80), nullable=False)
+class Tag(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  name = db.Column(db.String(80), nullable=False)
 
-#   movies = db.relationship('Movie', secondary='movie_tags', back_populates='tags')
+  movies = db.relationship('Movie', secondary='movie_tags', back_populates='tags')
 
-
+movie_tags_table = db.Table('movie_tags',
+    db.Column('movie_id', db.Integer, db.ForeignKey('movie.id')),
+    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'))
+)
 
 

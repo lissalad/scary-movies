@@ -1,1 +1,9 @@
-/* Add styles here. */
+input {
+  border: 2px black solid;
+  margin: 4px;
+  background-color: aquamarine;
+}
+
+h1 {
+  font-size: larger;
+}

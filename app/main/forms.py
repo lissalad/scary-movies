@@ -1,15 +1,25 @@
+from sqlite3 import Date
+from tkinter import N
 from tkinter.tix import Select
 from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField, DateField, SelectField, SubmitField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField, QuerySelectMultipleField
 from wtforms.validators import DataRequired, Length, URL
-from app.models import Movie, Tags
+from app.models import Movie, Tag
 
 
 class MovieForm(FlaskForm):
 
   title = StringField('Title')
   release_date = DateField()
-  tags = SelectField('Tags', choices=Tags.choices())
+
+  tags = QuerySelectMultipleField('Tags',
+    query_factory=lambda: Tag.query, get_label='name')
 
   submit = SubmitField('Submit')
+
+class TagForm(FlaskForm):
+  name = StringField('Name',validators=[DataRequired(),Length(min=1)])
+
+  submit = SubmitField('Submit')
+
