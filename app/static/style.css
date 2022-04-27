@@ -1,9 +1,25 @@
-input {
+/* input {
   border: 2px black solid;
-  margin: 4px;
-  background-color: aquamarine;
+  margin: 8px;
 }
+
+fieldset {
+  background-color: rgba(240, 248, 255, 0.56);
+  border-radius: 15px;
+  padding: 4px;
+  width:fit-content;
+} */
 
 h1 {
   font-size: larger;
+}
+
+/* button {
+  padding: 5px 10px;
+  background-color: rgb(103, 132, 146);
+} */
+
+.tag {
+  background-color: rgb(51, 81, 78);
+  border-radius: 5px;
 }

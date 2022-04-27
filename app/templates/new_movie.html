@@ -3,8 +3,8 @@
 <form method="POST" action="{{ url_for('main.new_movie') }}">
   {{ form.csrf_token }}
 
-  <fieldset>
-    <legend>New Movie</legend>
+  <fieldset class="bg-slate-300/70 rounded-lg h-fit w-fit p-4 flex flex-col text-black space-y-2">
+    <h2 class="text-center text-2xl">New Movie</h2>
 
     {{ form.title.label }} {{ form.title }}
 
@@ -15,8 +15,8 @@
     </ul>
 
     {{ form.release_date.label }}
-    <input type="date" name="release_date" />
-
+    {{ form.release_date }}
+    
     <ul>
       {% for error in form.release_date.errors %}
       <li class="error">{{ error }}</li>

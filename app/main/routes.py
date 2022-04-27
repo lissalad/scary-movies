@@ -35,6 +35,7 @@ def new_movie():
 @main.route('/new_tag', methods=['GET', 'POST'])
 # @login_required
 def new_tag():
+
     form = TagForm()
 
     if form.validate_on_submit(): 
@@ -49,3 +50,10 @@ def new_tag():
       return redirect(url_for('main.tags'))
 
     return render_template('new_tag.html', form=form)
+
+@main.route('/tag/<tag_id>', methods=['GET'])
+# @login_required
+def tag_detail(tag_id):
+  tag = Tag.query.get(tag_id)
+
+  return render_template('tag_detail.html', tag=tag)
