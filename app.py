@@ -1,12 +1,7 @@
 from app import app, db
-from app.main.routes import main
-from app.auth.routes import auth
+import os
 
-app.register_blueprint(main)
-app.register_blueprint(auth)
-
-with app.app_context():
-  db.create_all()
+port=int(os.environ.get('PORT', 3000))
 
 if __name__ == "__main__":
-  app.run(debug=True, port=3000)
+  app.run(debug=True, port=port)

@@ -1,18 +1,17 @@
 from app import db
 from sqlalchemy.orm import backref
 from flask_login import UserMixin
-import enum
 
 class Movie(db.Model):
   id = db.Column(db.Integer, primary_key=True)
-  title = db.Column(db.String(80), nullable=False)
-  release_date = db.Column(db.String(4,4))
+  title = db.Column(db.String(255), nullable=False)
+  release_date = db.Column(db.String(4))
 
   tags = db.relationship('Tag', secondary='movie_tags', back_populates='movies')
 
 class Tag(db.Model):
   id = db.Column(db.Integer, primary_key=True)
-  name = db.Column(db.String(80), nullable=False)
+  name = db.Column(db.String(255), nullable=False)
 
   movies = db.relationship('Movie', secondary='movie_tags', back_populates='tags')
 

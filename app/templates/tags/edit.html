@@ -1,10 +1,10 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'layouts/base.html' %} {% block content %}
 
-<form method="POST" action="{{ url_for('main.new_tag') }}">
+<form method="POST">
   {{ form.csrf_token }}
 
   <fieldset class="bg-slate-300/70 rounded-lg h-fit w-fit p-4 flex flex-col text-black space-y-2">
-    <h2 class="text-center text-2xl">New Tag</h2>
+    <h2 class="text-center text-2xl">Edit Tag</h2>
 
     {{ form.name.label }}
     {{ form.name }}

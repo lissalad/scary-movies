@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html' %} {% block content %}
+<h1>{{ movie.title }}</h1>
+<p>{{ movie.release_date }}</p>
+
+<div class="flex flex-row justify-left flex-wrap m-3">
+
+  {% for tag in movie.tags %}
+  <div class="bg-slate-500 m-12 rounded-lg w-[150px] h-[80px] px-4 py-2 flex justify-center items-center">
+    <a href="{{ url_for('tags.show', id=tag.id) }}" class="">{{ tag.name }}</a>
+  </div>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

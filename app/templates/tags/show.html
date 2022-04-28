@@ -1,14 +1,14 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'layouts/base.html' %} {% block content %}
 
 <h1 class="title">{{ tag.name }}</h1>
-<a href="/tag/{{ tag.id }}/edit">edit</a>
+<a href="{{ url_for('tags.edit', id=tag.id) }}">edit</a>
 
 <div>
   {% for movie in tag.movies %}
-  <div>
+  <a href="{{ url_for('movies.show', id=movie.id) }}">
     <p>{{ movie.title }}</p>
     <p>{{ movie.release_data }}</p>
-  </div>
+  </a>
   {% endfor %}
 </div>
 

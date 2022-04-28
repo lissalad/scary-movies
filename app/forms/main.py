@@ -9,11 +9,9 @@ from app.models import Movie, Tag
 
 
 class MovieForm(FlaskForm):
-
   title = StringField('Title')
   # release_date = DateField()
-  release_date = StringField('Release Year)'
-  )
+  release_date = StringField('Release Year)')
 
   tags = QuerySelectMultipleField('Tags',
     query_factory=lambda: Tag.query, get_label='name')
@@ -22,6 +20,5 @@ class MovieForm(FlaskForm):
 
 class TagForm(FlaskForm):
   name = StringField('Name',validators=[DataRequired(),Length(min=1)])
-
   submit = SubmitField('Submit')
 
