@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+
+<form method="POST">
+  {{ form.csrf_token }}
+
+  <fieldset class="bg-slate-300/70 rounded-lg h-fit w-fit p-4 flex flex-col text-black space-y-2">
+    <h2 class="text-center text-2xl">Edit Tag</h2>
+
+    {{ form.name.label }}
+    {{ form.name }}
+
+    <ul>
+      {% for error in form.name.errors %}
+      <li class="error">{{ error }}</li>
+      {% endfor %}
+    </ul>
+
+    {{ form.submit }}
+  </fieldset>
+</form>
+
+{% endblock %}

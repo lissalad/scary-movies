@@ -23,3 +23,14 @@ h1 {
   background-color: rgb(51, 81, 78);
   border-radius: 5px;
 }
+
+.title {
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  margin: 20px;
+}
+
+a {
+  margin: 20px;
+}

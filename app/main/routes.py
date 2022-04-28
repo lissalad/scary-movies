@@ -14,7 +14,7 @@ def tags():
   tags = Tag.query.all()
   return render_template('tags.html', tags=tags)
 
-@main.route('/new_movie', methods=['GET', 'POST'])
+@main.route('/movie/new', methods=['GET', 'POST'])
 # @login_required
 def new_movie():
     form = MovieForm()
@@ -32,16 +32,14 @@ def new_movie():
       # return redirect(url_for('main.book_detail', book_id=new_book.id))
     return render_template('new_movie.html', form=form)
 
-@main.route('/new_tag', methods=['GET', 'POST'])
+@main.route('/tag/new', methods=['GET', 'POST'])
 # @login_required
 def new_tag():
 
     form = TagForm()
 
     if form.validate_on_submit(): 
-      new_tag = Tag(
-      name=form.name.data,
-      )
+      new_tag = Tag(name=form.name.data)
       db.session.add(new_tag)
       db.session.commit()
 
@@ -57,3 +55,21 @@ def tag_detail(tag_id):
   tag = Tag.query.get(tag_id)
 
   return render_template('tag_detail.html', tag=tag)
+
+@main.route('/tag/<tag_id>/edit', methods=['GET', 'POST'])
+# @login_required
+def edit_tag(tag_id):
+
+  tag = Tag.query.get(tag_id)
+  form = TagForm(obj=tag)
+
+  if request.method == 'POST':
+    tag = Tag(name=form.name.data)
+    db.session.add(tag)
+    db.session.commit()
+
+    flash('tag updated')
+    return redirect(url_for('main.tag_detail', form=form, tag_id=tag.id))
+
+  tag = Tag.query.get(tag_id)
+  return render_template('edit_tag.html', form=form, tag=tag)

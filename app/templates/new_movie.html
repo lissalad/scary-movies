@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<form method="POST" action="{{ url_for('main.new_movie') }}">
+<form method="POST">
   {{ form.csrf_token }}
 
   <fieldset class="bg-slate-300/70 rounded-lg h-fit w-fit p-4 flex flex-col text-black space-y-2">

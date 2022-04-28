@@ -1,9 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 
-<h2 class="text-xl">Your Categories</h2>
-<div class="flex flex-row justify-evenly flex-wrap m-3">
+<div class="flex flex-row justify-left flex-wrap m-3">
   {% for tag in tags %}
-  <div class="bg-slate-500 m-6 rounded-lg w-[150px] h-[80px] px-4 py-2 flex justify-center items-center">
+  <div class="bg-slate-500 m-12 rounded-lg w-[150px] h-[80px] px-4 py-2 flex justify-center items-center">
     <a href="/tag/{{ tag.id }}" class="">{{ tag.name }}</a>
   </div>
   {% endfor %}

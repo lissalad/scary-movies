@@ -1,6 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1 class="">{{ tag.name }}</h1>
+<h1 class="title">{{ tag.name }}</h1>
+<a href="/tag/{{ tag.id }}/edit">edit</a>
+
 <div>
   {% for movie in tag.movies %}
   <div>

@@ -13,6 +13,8 @@ bcrypt = Bcrypt(app)
 
 db = SQLAlchemy(app)
 
+
+
 ###########################
 # Authentication
 ###########################
