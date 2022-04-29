@@ -20,4 +20,9 @@ movie_tags_table = db.Table('movie_tags',
     db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'), primary_key=True)
 )
 
+class User(db.Model, UserMixin):
+  id = db.Column(db.Integer, primary_key=True) # primary keys are required by SQLAlchemy
+  email = db.Column(db.String(100), unique=True)
+  password = db.Column(db.String(100))
+  name = db.Column(db.String(1000))
 

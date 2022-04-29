@@ -3,6 +3,7 @@
 <p>{{ movie.release_date }}</p>
 <a href="{{ url_for('movies.edit', id=movie.id) }}">edit</a>
 
+
 <div class="flex flex-row justify-left flex-wrap m-3">
 
   {% for tag in movie.tags %}

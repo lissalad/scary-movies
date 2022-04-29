@@ -50,3 +50,12 @@ def edit(id):
     flash('movie updated')
     return redirect(url_for('movies.show', form=form, id=movie.id))
   return render_template('movies/edit.html', form=form, movie=movie)
+
+@movies.route('/movies/<id>/delete')
+# @login_required
+def delete(id):
+  movie = Movie.query.get(id)
+  db.session.delete(movie)
+  db.session.commit()
+
+  return redirect(url_for('movies.index'))

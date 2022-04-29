@@ -49,3 +49,11 @@ def edit(id):
 
   return render_template('tags/edit.html', form=form, tag=tag)
   
+@tags.route('/tags/<id>/delete')
+# @login_required
+def delete(id):
+  tag = Tag.query.get(id)
+  db.session.delete(tag)
+  db.session.commit()
+
+  return redirect(url_for('tags.index'))

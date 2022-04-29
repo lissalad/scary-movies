@@ -1,7 +1,9 @@
 {% extends 'layouts/base.html' %} {% block content %}
 
-<h1 class="title">{{ tag.name }}</h1>
-<a href="{{ url_for('tags.edit', id=tag.id) }}">edit</a>
+<div class="flex flex-row w-48 items-end">
+  <h1 class="title">{{ tag.name }}</h1>
+  <a class="edit" href="{{ url_for('tags.edit', id=tag.id) }}">edit</a>
+</div>
 
 <div>
   {% for movie in tag.movies %}

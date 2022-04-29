@@ -28,9 +28,9 @@ h1 {
   font-size: 25px;
   width: 100%;
   text-align: center;
-  margin: 20px;
+  /* margin: 20px; */
 }
 
 a {
-  margin: 20px;
+  margin: 0px 20px;
 }
