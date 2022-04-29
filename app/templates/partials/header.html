@@ -1,15 +1,13 @@
 <div class="w-full h-[110px] flex flex-row items-end p-6 pb-2">
   <img class="w-[70px] pt-3" src="/static/images/cackle.png"> 
   <a class="text-3xl p-2 mb-1 font-['horrorFont']" href="{{ url_for('main.index') }}">Horror Collect</a> 
-  <a href="{{ url_for('movies.new') }}">new movie</a>
-  <a href="{{ url_for('tags.new') }}">new tag</a>
-  <a href="{{ url_for('tags.index') }}">all tags</a>
-  <a href="{{ url_for('movies.index') }}">all movies</a>
+
   <div class="navbar-end">
-    <a href="{{ url_for('main.index') }}" class="navbar-item">
-        Home
-    </a>
     {% if current_user.is_authenticated %}
+    <a href="{{ url_for('movies.new') }}">new movie</a>
+    <a href="{{ url_for('tags.new') }}">new tag</a>
+    <a href="{{ url_for('tags.index') }}">all tags</a>
+    <a href="{{ url_for('movies.index') }}">all movies</a>
     <a href="{{ url_for('auth.profile') }}" class="navbar-item">
         Profile
     </a>
@@ -17,9 +15,6 @@
     {% if not current_user.is_authenticated %}
     <a href="{{ url_for('auth.login') }}" class="navbar-item">
         Login
-    </a>
-    <a href="{{ url_for('auth.signup') }}" class="navbar-item">
-        Sign Up
     </a>
     {% endif %}
     {% if current_user.is_authenticated %}

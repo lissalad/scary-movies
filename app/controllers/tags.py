@@ -2,16 +2,18 @@ from flask import Blueprint, request, render_template, redirect, url_for, flash
 from app.forms.main import MovieForm, TagForm
 from app.models import Movie, Tag
 from app import app, db
+from flask_login import login_required
 
 tags = Blueprint('tags', __name__)
 
 @tags.route('/tags')
+@login_required
 def index():
   tags = Tag.query.all()
   return render_template('tags/index.html', tags=tags)
 
 @tags.route('/tags/new', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def new():
     form = TagForm()
 
@@ -27,13 +29,13 @@ def new():
     return render_template('tags/new.html', form=form)
 
 @tags.route('/tags/<id>', methods=['GET'])
-# @login_required
+@login_required
 def show(id):
   tag = Tag.query.get(id)
   return render_template('tags/show.html', tag=tag)
 
 @tags.route('/tags/<id>/edit', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def edit(id):
 
   tag = Tag.query.get(id)
@@ -50,7 +52,7 @@ def edit(id):
   return render_template('tags/edit.html', form=form, tag=tag)
   
 @tags.route('/tags/<id>/delete')
-# @login_required
+@login_required
 def delete(id):
   tag = Tag.query.get(id)
   db.session.delete(tag)

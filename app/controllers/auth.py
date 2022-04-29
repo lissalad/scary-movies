@@ -31,7 +31,7 @@ def login_post():
   login_user(user, remember=remember)
 
   # if the above check passes, then we know the user has the right credentials
-  return redirect(url_for('auth.profile'))
+  return redirect(url_for('auth.index'))
 
 @auth.route('/signup')
 def signup():
@@ -56,7 +56,9 @@ def signup_post():
   # add the new user to the database
   db.session.add(new_user)
   db.session.commit()
-  return redirect(url_for('auth.login'))
+
+  # login_user(user, remember=False)
+  return redirect(url_for('auth.index'))
 
 @auth.route('/profile')
 @login_required
@@ -67,5 +69,5 @@ def profile():
 @auth.route('/logout')
 @login_required
 def logout():
-    logout_user()
-    return redirect(url_for('main.index'))
+  logout_user()
+  return redirect(url_for('main.index'))

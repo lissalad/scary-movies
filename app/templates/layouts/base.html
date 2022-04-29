@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project Title</title>
+    <title>Horror Collect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body class="bg-[url('/static/images/tv.jpg')] text-white">
     {% include "partials/header.html" %}
-    <!-- <main class="bg-gradient-to-t from-rose-500 to-black p-5 flex flex-col items-center p-4"> -->
     {% with messages = get_flashed_messages() %} {% if messages %}
     <div class="notification is-danger">
       {{ messages[0] }}
