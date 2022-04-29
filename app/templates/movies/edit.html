@@ -4,9 +4,10 @@
   {{ form.csrf_token }}
 
   <fieldset class="bg-slate-300/70 rounded-lg h-fit w-fit p-4 flex flex-col text-black space-y-2">
-    <h2 class="text-center text-2xl">New Movie</h2>
+    <h2 class="text-center text-2xl">Edit Movie</h2>
 
-    {{ form.title.label }} {{ form.title }}
+    {{ form.title.label }}
+    {{ form.title }}
 
     <ul>
       {% for error in form.title.errors %}
@@ -16,14 +17,15 @@
 
     {{ form.release_year.label }}
     {{ form.release_year }}
-    
+
     <ul>
       {% for error in form.release_year.errors %}
       <li class="error">{{ error }}</li>
       {% endfor %}
     </ul>
 
-    {{ form.tags.label }} {{ form.tags }}
+    {{ form.tags.label }}
+    {{ form.tags }}
 
     <ul>
       {% for error in form.tags.errors %}

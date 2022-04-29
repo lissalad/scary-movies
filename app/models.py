@@ -5,7 +5,7 @@ from flask_login import UserMixin
 class Movie(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(255), nullable=False)
-  release_date = db.Column(db.String(4))
+  release_year = db.Column(db.String(4))
 
   tags = db.relationship('Tag', secondary='movie_tags', back_populates='movies')
 

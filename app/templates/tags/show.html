@@ -7,7 +7,7 @@
   {% for movie in tag.movies %}
   <a href="{{ url_for('movies.show', id=movie.id) }}">
     <p>{{ movie.title }}</p>
-    <p>{{ movie.release_data }}</p>
+    <p>{{ movie.release_year }}</p>
   </a>
   {% endfor %}
 </div>

@@ -1,0 +1,11 @@
+{% extends 'layouts/base.html' %} {% block content %}
+
+<div class="flex flex-row justify-left flex-wrap m-12">
+  {% for movie in movies %}
+  <div class="bg-slate-200 m-7 text-black rounded-sm w-[180px] h-[250px]  flex justify-center items-end">
+    <a href="{{ url_for('movies.show', id=movie.id) }}" class="">{{ movie.title }} ({{ movie.release_year }})</a>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

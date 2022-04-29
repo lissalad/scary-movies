@@ -48,3 +48,4 @@ def edit(id):
     return redirect(url_for('tags.show', form=form, id=tag.id))
 
   return render_template('tags/edit.html', form=form, tag=tag)
+  
