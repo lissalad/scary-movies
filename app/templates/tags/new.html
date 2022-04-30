@@ -3,20 +3,22 @@
 <form method="POST" action="{{ url_for('tags.new') }}">
   {{ form.csrf_token }}
 
-  <fieldset class="bg-slate-300/70 rounded-lg h-fit w-fit p-4 flex flex-col text-black space-y-2">
-    <h2 class="text-center text-2xl">New Tag</h2>
+    <p class="title">New Tag</p>
 
-    {{ form.name.label }}
-    {{ form.name }}
+    <div class="inputs">
+      <div class="enter">
+        <label>Name</label>
 
-    <ul>
-      {% for error in form.name.errors %}
-      <li class="error">{{ error }}</li>
-      {% endfor %}
-    </ul>
+        <input
+          class="input text-black"
+          type="text"
+          name="name"
+          required
+        />
+      </div>
+    </div>
 
-    {{ form.submit }}
-  </fieldset>
+    <button class="button">Save</button>
 </form>
 
 {% endblock %}

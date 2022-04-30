@@ -1,22 +1,21 @@
 {% extends 'layouts/base.html' %} {% block content %}
 
-<form
-  class="bg-slate-300/70 rounded-lg h-fit w-fit p-4 flex flex-col text-black space-y-2"
-  method="POST"
->
+<form method="POST">
   {{ form.csrf_token }}
-  <h2 class="text-center text-2xl">Edit Tag</h2>
+  <p class="title">Edit Tag</p>
 
-  {{ form.name.label }} {{ form.name }}
+  <div class="inputs">
+    <div class="enter">
+      <label>Name</label>
 
-  <ul>
-    {% for error in form.name.errors %}
-    <li class="error">{{ error }}</li>
-    {% endfor %}
-  </ul>
-
+      <input class="input text-black" type="text" name="name" required />
+    </div>
+  </div>
+  
   <div class="button-pair">
-    <a class="button bg-rose-400" href="{{ url_for('tags.delete', id=tag.id) }}">Delete</a>
+    <a class="button bg-rose-400 py-1" href="{{ url_for('tags.delete', id=tag.id) }}"
+      >Delete</a
+    >
     <button class="button">Save</button>
   </div>
 </form>

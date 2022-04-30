@@ -25,6 +25,13 @@ form {
   justify-content: center;
 }
 
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
 .enter {
   display: flex;
   flex-direction: column;
@@ -36,16 +43,26 @@ h1 {
   font-size: larger;
 }
 
+/* .nav-item:hover, .nav-item:active .log:hover {
+  background-color: rgba(76, 76, 76, 0.386);
+  border-radius: 2px;
+} */
+
 .button {
-  padding: 5px 10px;
+  padding: 0px 10px;
   background-color: rgb(0, 97, 146);
   border-radius: 4px;
   margin: 20px;
   color: white;
+  height: fit-content;
 }
 
 .button:hover {
-  background-color: rgb(0, 55, 82);
+  filter: brightness(80%);
+}
+
+a:hover {
+  filter: brightness(150%);
 }
 
 .tag {
@@ -59,10 +76,3 @@ h1 {
   text-align: center;
   /* margin: 20px; */
 }
-
-/* a {
-  margin: 0px 20px;
-  color:blueviolet;
-  font-size: smaller;
-  text-align: center;
-} */
