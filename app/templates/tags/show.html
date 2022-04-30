@@ -1,7 +1,7 @@
 {% extends 'layouts/base.html' %} {% block content %}
 
 <div class="flex flex-row w-48 items-end">
-  <h1 class="title">{{ tag.name }}</h1>
+  <p class="title">{{ tag.name }}</p>
   <a class="edit" href="{{ url_for('tags.edit', id=tag.id) }}">edit</a>
 </div>
 
