@@ -6,7 +6,7 @@
 </div>
 <div class="flex flex-row justify-left flex-wrap">
   {% for tag in tags %}
-  <a href="{{ url_for('tags.show', id=tag.id) }}" class="bg-slate-500 mx-6 rounded-lg w-[150px] h-[80px] px-4 py-2 flex justify-center items-center">
+  <a href="{{ url_for('tags.show', id=tag.id) }}" class="bg-slate-500 mx-6 my-2 rounded-lg w-[150px] h-[80px] px-4 py-2 flex justify-center items-center">
     <p>{{ tag.name }}</p>
   </a>
 </a>
