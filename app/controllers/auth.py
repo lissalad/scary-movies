@@ -57,7 +57,7 @@ def signup_post():
   db.session.add(new_user)
   db.session.commit()
 
-  # login_user(user, remember=False)
+  login_user(new_user, remember=False)
   return redirect(url_for('auth.index'))
 
 @auth.route('/profile')

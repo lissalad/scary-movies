@@ -5,16 +5,10 @@
   <p class="title">New Movie</p>
 
   <div class="inputs">
-
     <div class="enter">
       <label>Title</label>
 
-      <input
-      class="input text-black"
-      type="text"
-      name="title"
-      required
-    />
+      <input class="input text-black" type="text" name="title" required />
     </div>
 
     <div class="enter">
@@ -29,21 +23,23 @@
       />
     </div>
 
-    <div class="w-full my-3">
-      <p>Tags:</p>
-      <div class="justify-start mt-1 flex flex-row space-x-3 flex-wrap">
-        {% for tag in form.tags %}
-        <div class="flex flex-row items-center">
-          <input type="checkbox" name="tags" />
-          <label for="tags">{{ tag }}</label>
+    {% if not isEmpty %}
+      <div class="w-full my-3">
+        <p>Tags:</p>
+        <div class="justify-start mt-1 flex flex-row space-x-3 flex-wrap">
+          {% for tag in form.tags %}
+            <div class="flex flex-row items-center">
+              <input type="checkbox" name="tags" />
+              <label for="tags">{{ tag }}</label>
+            </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
-    </div>
+    {% endif %}
+
   </div>
 
   <button class="button">Save</button>
-
 </form>
 
 {% endblock %}

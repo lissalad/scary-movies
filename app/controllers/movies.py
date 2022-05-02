@@ -17,6 +17,11 @@ def index():
 def new():
     form = MovieForm()
 
+    isEmpty = True
+    if len(current_user.tags) > 0:
+      isEmpty = False
+      print("not empty!")
+
     if request.method == 'POST':
       new_movie = Movie(
         title=form.title.data,
@@ -26,11 +31,11 @@ def new():
       )
       db.session.add(new_movie)
       db.session.commit()
-
+      
       flash('new movie created')
       return redirect(url_for('movies.show', id=new_movie.id))
     # flash('failed to create movie')
-    return render_template('movies/new.html', form=form)
+    return render_template('movies/new.html', form=form, isEmpty=isEmpty)
 
 @movies.route('/movies/<id>', methods=['GET'])
 @login_required
@@ -49,6 +54,11 @@ def edit(id):
   if movie in current_user.movies:
     form = MovieForm(obj=movie)
 
+    isEmpty = True
+    if len(current_user.tags) > 0:
+      isEmpty = False
+      print("not empty!")
+
     if request.method == 'POST':
       movie.title = form.title.data
       movie.release_year = form.release_year.data
@@ -60,7 +70,7 @@ def edit(id):
       flash('movie updated')
       return redirect(url_for('movies.show', form=form, id=movie.id))
     # flash('failed to update movie')
-    return render_template('movies/edit.html', form=form, movie=movie)
+    return render_template('movies/edit.html', form=form, movie=movie, isEmpty=isEmpty)
   else:
     flash('that is not yours')
     return redirect(url_for('movies.index'))

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horror Collect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/static/style.css" />
   </head>
+
   <body class="bg-[url('/static/images/tv.jpg')] text-white">
     {% include "partials/header.html" %}
     {% with messages = get_flashed_messages() %} {% if messages %}
@@ -14,7 +18,6 @@
     {% endif %} {% endwith %}
     <main class="m-12 flex flex-col items-center">{% block content %}{% endblock %}</main>
     {% include "partials/woman.html" %}
-
   </body>
 
   <style>
