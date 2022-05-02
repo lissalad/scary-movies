@@ -1,10 +1,37 @@
-{% extends 'layouts/base.html' %}
+{% extends 'layouts/base.html' %} {% block content %}
 
-{% block content %}
+<div class="flex flex-col items-center py-10">
+  {% if current_user.is_authenticated %}
+  <div class="text-center">
+    <p class="text-[60px] text-center">Welcome back {{ current_user.name }}!</p>
+    <p class="text-[20px]">Seen any spooky movies lately?</p>
+    <div class="flex flex-col space-y-6 items-center my-8 mt-12">
+      <div class="flex flex-row items-center">
+        <a
+        class="rounded-full p-2 bg-green-700/90 hover:bg-green-800/90"
+        href="{{ url_for('movies.new') }}"
+        ><img class="w-[8px]" src="/static/images/plus.png"
+      /></a>
+      <a href="{{ url_for('auth.login') }}" class="nav-item mx-1 text-md">add movie</a>
 
-<main>
-  <h1></h1>
+      </div>
+  
+    </div>
 
-</main>
+  </div>
+  {% endif %}
 
+  {% if not current_user.is_authenticated %}
+  <div>
+    <p class="text-[30px] text-center w-[600px]">Are all the ghosts and ghouls of movies getting jumbled in your head?</p>
+    <div class="flex flex-col items-center space-y-4 py-12">
+      <p>sort through your horrors</p>
+      <div class="flex flex-row">
+        <a href="{{ url_for('auth.login') }}" class="nav-item bg-slate-600/80">Join!</a>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+</div>
 {% endblock %}

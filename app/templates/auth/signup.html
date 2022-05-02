@@ -1,6 +1,5 @@
 {% extends "layouts/base.html" %} {% block content %}
-
-<form method="POST" action="/signup">
+<form class="" method="POST" action="/signup">
   <p class="title">Sign Up</p>
 
   <div class="inputs pt-2">
@@ -32,9 +31,8 @@
 
   <button class="button">Sign Up</button>
 
-  <a href="{{ url_for('auth.login') }}">
+  <a class="text-center text-sm" href="{{ url_for('auth.login') }}">
     Already have an account? <br />Log in!
   </a>
 </form>
-
 {% endblock %}
