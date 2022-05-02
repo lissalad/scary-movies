@@ -1,17 +1,17 @@
 {% extends 'layouts/base.html' %} {% block content %}
 
-<div class="flex flex-row w-48 items-end">
-  <p class="title">{{ tag.name }}</p>
-  <a class="edit" href="{{ url_for('tags.edit', id=tag.id) }}">edit</a>
-</div>
+  <div class="flex flex-row w-full justify-center items-end">
+    <p class="title text-[60px] w-fit">{{ tag.name }}</p>
+    <a class="button bg-purple-800" href="{{ url_for('tags.edit', id=tag.id) }}">edit</a>
+  </div>
 
-<div>
-  {% for movie in tag.movies %}
-  <a href="{{ url_for('movies.show', id=movie.id) }}">
-    <p>{{ movie.title }}</p>
-    <p>{{ movie.release_year }}</p>
-  </a>
-  {% endfor %}
-</div>
+  <div>
+    {% for movie in tag.movies %}
+      <a href="{{ url_for('movies.show', id=movie.id) }}">
+        <p>{{ movie.title }}</p>
+        <p>{{ movie.release_year }}</p>
+      </a>
+    {% endfor %}
+  </div>
 
 {% endblock %}

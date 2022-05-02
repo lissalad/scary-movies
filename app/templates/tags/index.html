@@ -1,19 +1,21 @@
 {% extends 'layouts/base.html' %} {% block content %}
 
-<div class="flex title flex-row items-center mb-6">
+<div class="flex title flex-row items-center mb-4">
   <p class="">Tags</p>
   <a class="rounded-full p-2 bg-green-700/90 m-2 hover:bg-green-800/90" href="{{ url_for('tags.new') }}">
     <img class="w-[15px]" src="/static/images/plus.png"/>
   </a>
 </div>
 
-<div class="flex flex-row justify-left flex-wrap">
+<div class="flex flex-row justify-left flex-wrap w-full">
+
   {% for tag in tags %}
-  <a href="{{ url_for('tags.show', id=tag.id) }}"
-  class="bg-slate-500 mx-6 my-3 rounded w-[150px] h-[60px] px-4 py-2 flex justify-center items-center">
-    <p>{{ tag.name }}</p>
-  </a>
+    <a href="{{ url_for('tags.show', id=tag.id) }}"
+    class="bg-slate-500 mx-6 my-3 rounded w-[150px] h-[60px] px-4 py-2 flex justify-center items-center">
+      <p>{{ tag.name }}</p>
+    </a>
   {% endfor %}
+
 </div>
 
 {% endblock %}

@@ -16,7 +16,6 @@ def index():
 @login_required
 def new():
     form = MovieForm()
-
     isEmpty = True
     if len(current_user.tags) > 0:
       isEmpty = False
@@ -57,15 +56,17 @@ def edit(id):
     isEmpty = True
     if len(current_user.tags) > 0:
       isEmpty = False
-      print("not empty!")
 
     if request.method == 'POST':
       movie.title = form.title.data
       movie.release_year = form.release_year.data
       movie.tags = form.tags.data
 
+      print(form.tags)
+
       db.session.add(movie)
       db.session.commit()
+
 
       flash('movie updated')
       return redirect(url_for('movies.show', form=form, id=movie.id))
@@ -79,11 +80,13 @@ def edit(id):
 @login_required
 def delete(id):
   movie = Movie.query.get(id)
+
   if movie in current_user.movies:
     db.session.delete(movie)
     db.session.commit()
     flash('movie deleted')
     return redirect(url_for('movies.index'))
+
   else:
     flash('that is not yours')
     return redirect(url_for('movies.index'))

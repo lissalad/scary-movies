@@ -9,13 +9,13 @@
   </a>
 </div>
 
-<div class="flex flex-row justify-left flex-wrap">
+<div class="flex flex-row justify-left flex-wrap w-full">
   {% for movie in movies %}
-  <a
-    href="{{ url_for('movies.show', id=movie.id) }}"
-    class="bg-slate-500 mx-6 my-3 rounded w-[150px] h-[60px] px-4 py-2 flex justify-center items-center">
-    <p class="">{{ movie.title }} ({{ movie.release_year }})</p>
-  </a>
+    <a
+      href="{{ url_for('movies.show', id=movie.id) }}"
+      class="bg-slate-500 mx-6 my-3 rounded w-[150px] h-[60px] px-4 py-2 flex justify-center items-center">
+      <p class="">{{ movie.title }} ({{ movie.release_year }})</p>
+    </a>
   {% endfor %}
 </div>
 

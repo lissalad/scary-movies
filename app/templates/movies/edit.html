@@ -9,12 +9,12 @@
       <label>Title</label>
 
       <input
-      class="input text-black"
-      type="text"
-      name="title"
-      value="{{ form.title.data }}"
-      required
-    />
+        class="input text-black"
+        type="text"
+        name="title"
+        value="{{ form.title.data }}"
+        required
+      />
     </div>
 
     <div class="enter">
@@ -32,26 +32,28 @@
     </div>
 
     {% if not isEmpty %}
-      <div class="w-full my-3">
-        <p>Tags:</p>
-        <div class="justify-start mt-1 flex flex-row space-x-3 flex-wrap">
-          {% for tag in form.tags %}
-            <div class="flex flex-row items-center">
-              <input type="checkbox" name="tags" />
-              <label for="tags">{{ tag }}</label>
-            </div>
+    <div class="enter">
+      <label class="mb-1" for="tags">Tags</label>
+        <select class="" name="tags" multiple>
+          {% for tag in current_user.tags %}
+              <option value="{{ tag.id }}" class="text-black" 
+              {% if tag in movie.tags %} selected {% endif %}>
+                {{ tag.name }}
+              </option>
           {% endfor %}
-        </div>
+        </select>
       </div>
-      {% endif %}
+    {% endif %}
   </div>
 
   <div class="button-pair">
-    <a class="button bg-rose-600 py-1" href="{{ url_for('movies.delete', id=movie.id) }}">Delete</a>
+    <a
+      class="button bg-rose-600 py-1"
+      href="{{ url_for('movies.delete', id=movie.id) }}"
+      >Delete</a
+    >
     <button class="button">Save</button>
   </div>
-
-
 </form>
 
 {% endblock %}
