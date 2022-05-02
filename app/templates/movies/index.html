@@ -4,19 +4,17 @@
   <p class="">Movies</p>
   <a
     class="rounded-full p-2 bg-green-700/90 m-2 hover:bg-green-800/90"
-    href="{{ url_for('movies.new') }}"
-    ><img class="w-[15px]" src="/static/images/plus.png"
-  /></a>
+    href="{{ url_for('movies.new') }}">
+    <img class="w-[15px]" src="/static/images/plus.png" />
+  </a>
 </div>
 
 <div class="flex flex-row justify-left flex-wrap">
   {% for movie in movies %}
-  <a href="{{ url_for('movies.show', id=movie.id) }}" class="">
-    <div
-      class="bg-slate-600 m-7 text-black rounded-sm w-[180px] h-[250px] flex justify-center items-end"
-    >
-      <p class="mb-2">{{ movie.title }} ({{ movie.release_year }})</p>
-    </div>
+  <a
+    href="{{ url_for('movies.show', id=movie.id) }}"
+    class="bg-slate-500 mx-6 my-3 rounded w-[150px] h-[60px] px-4 py-2 flex justify-center items-center">
+    <p class="">{{ movie.title }} ({{ movie.release_year }})</p>
   </a>
   {% endfor %}
 </div>

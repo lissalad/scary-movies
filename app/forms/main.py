@@ -6,6 +6,7 @@ from wtforms import StringField, FloatField, DateField, SelectField, SubmitField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField, QuerySelectMultipleField
 from wtforms.validators import DataRequired, Length, URL
 from app.models import Movie, Tag
+from flask_login import current_user
 
 
 class MovieForm(FlaskForm):
@@ -13,7 +14,7 @@ class MovieForm(FlaskForm):
   release_year = StringField('Release Year)')
 
   tags = QuerySelectMultipleField('Tags',
-    query_factory=lambda: Tag.query, get_label='name')
+    query_factory=lambda: Tag.query.filter_by(user_id=current_user.id), get_label='name')
 
   submit = SubmitField('Submit')
 

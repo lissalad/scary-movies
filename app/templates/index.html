@@ -12,12 +12,10 @@
         href="{{ url_for('movies.new') }}"
         ><img class="w-[8px]" src="/static/images/plus.png"
       /></a>
-      <a href="{{ url_for('auth.login') }}" class="nav-item mx-1 text-md">add movie</a>
+      <a href="{{ url_for('movies.new') }}" class="nav-item mx-1 text-md">add movie</a>
 
       </div>
-  
     </div>
-
   </div>
   {% endif %}
 
