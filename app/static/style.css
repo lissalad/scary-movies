@@ -13,18 +13,6 @@
   margin: 2px 0px;
 }
 
-form {
-  background-color: rgba(240, 248, 255, 0.56);
-  border-radius: 5px;
-  padding: 4px;
-  width:fit-content;
-  display:flex;
-  flex-direction: column;
-  padding: 10px;
-  align-items: center;
-  justify-content: center;
-}
-
 .nav-item {
   /* background-color: rgba(128, 128, 128, 0.581); */
   display: flex;
@@ -42,14 +30,33 @@ form {
   width: 100%;
 }
 
+.movie {
+  margin: 30px;
+  border-radius: 2px;
+  background-color: rgba(87, 48, 124, 0.816);
+  width: 150px;
+  height: 220px;
+  padding: 8px;
+  display: flex;
+  align-items: end;
+}
+
+.tag {
+  margin: 20px;
+  border:rgba(162, 162, 162, 0.816) 3px solid;
+  border-radius: 2px;
+  background-color: rgba(219, 215, 223, 0.117);
+  width: 150px;
+  height: 60px;
+  padding: 5px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 h1 {
   font-size: larger;
 }
-
-/* .nav-item:hover, .nav-item:active .log:hover {
-  background-color: rgba(76, 76, 76, 0.386);
-  border-radius: 2px;
-} */
 
 .button {
   padding: 0px 10px;
@@ -73,4 +80,32 @@ a:hover {
   width: 100%;
   text-align: center;
   /* margin: 20px; */
+}
+
+.gallery {
+  display:flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+  margin: 1vh 0;
+}
+
+main {
+  max-width: 1400px;
+  display:flex;
+  flex-direction: column;
+  margin: 3rem 5rem;
+  align-items: center;
+}
+
+form {
+  background-color: rgba(240, 248, 255, 0.56);
+  border-radius: 5px;
+  padding: 4px;
+  width:fit-content;
+  display:flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
 }
