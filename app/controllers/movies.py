@@ -25,6 +25,7 @@ def new():
       new_movie = Movie(
         title=form.title.data,
         release_year=form.release_year.data,
+        img_url=form.img_url.data,
         tags=form.tags.data,
         user_id=current_user.id,
       )
@@ -60,6 +61,7 @@ def edit(id):
     if request.method == 'POST':
       movie.title = form.title.data
       movie.release_year = form.release_year.data
+      img_url=form.img_url.data,
       movie.tags = form.tags.data
 
       print(form.tags)

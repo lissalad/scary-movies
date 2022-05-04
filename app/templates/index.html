@@ -4,20 +4,19 @@
   <!--------- logged in -------------->
   {% if current_user.is_authenticated %}
   <div class="text-center flex flex-col items-center">
-    <p class="text-[2rem] text-center">
-      Welcome back {{ current_user.name }}!
-    </p>
+    <p class="text-[2rem] text-center">Welcome back {{ current_user.name }}!</p>
     <p class="mt-2">Seen any spooky movies lately?</p>
-      <div class="flex flex-row items-center mt-12">
-        <a
-          class="rounded-full p-2 bg-green-700/90 hover:bg-green-800/90"
-          href="{{ url_for('movies.new') }}"
-          ><img class="w-[8px]" src="/static/images/plus.png"
-        /></a>
-        <a href="{{ url_for('movies.new') }}" class="nav-item mx-1 text-md"
-          >add movie</a
-        >
-      </div>
+
+    <a
+      class="flex flex-row items-center mt-12"
+      href="{{ url_for('movies.new') }}"
+    >
+      <img
+        class="w-[27px] p-2 rounded-full bg-green-700/90 hover:bg-green-800/90"
+        src="/static/images/plus.png"
+      />
+      <p class="nav-item mx-1 text-md">add movie</p>
+    </a>
   </div>
   {% endif %}
 
@@ -28,13 +27,15 @@
       Ghosts and ghouls getting jumbled in your head?
     </p>
     <p class="mt-2">Sort through your horrors!</p>
-      <div class="flex flex-row mt-12">
-        <a href="{{ url_for('auth.login') }}" class="nav-item bg-slate-600/80"
-          >Join!</a>
-      </div>
+    <div class="flex flex-row mt-12">
+      <a href="{{ url_for('auth.login') }}" class="nav-item bg-slate-600/80"
+        >Join!</a
+      >
+    </div>
   </div>
   {% endif %}
 
+  {% include "/partials/woman.html" %}
 
 </main>
 {% endblock %}

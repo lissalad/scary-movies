@@ -33,19 +33,22 @@
 .movie {
   margin: 1rem;
   border-radius: 2px;
-  background-color: rgba(87, 48, 124, 0.816);
-  width: 150px;
-  height: 220px;
+  /* background-color: rgba(87, 48, 124, 0.816); */
+  /* width: 150px; */
+  /* height: 220px; */
   padding: 8px;
   display: flex;
   align-items: end;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tag {
-  margin: 20px;
+  margin: 10px;
   border:rgba(162, 162, 162, 0.816) 3px solid;
   border-radius: 2px;
-  background-color: rgba(219, 215, 223, 0.117);
+  background-color: rgba(219, 215, 223, 0.299);
   width: 150px;
   height: 60px;
   padding: 5px 12px;
@@ -67,11 +70,11 @@ h1 {
   height: fit-content;
 }
 
-.button:hover {
+.button:hover, a:hover {
   filter: brightness(80%);
 }
 
-a:hover {
+.brighten:hover {
   filter: brightness(150%);
 }
 
@@ -95,8 +98,8 @@ main {
   display:flex;
   flex-direction: column;
   margin: 3rem 5rem;
-  align-items: center;
-  margin: 4rem auto;
+  /* align-items: center; */
+  margin: 1rem 0;
   padding: 0 3rem;
 }
 

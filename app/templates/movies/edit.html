@@ -35,6 +35,18 @@
         />
       </div>
 
+<!--------- image url  -------------->
+<div class="enter">
+  <label>Image Address</label>
+  <input
+    class="input text-black"
+    type="text"
+    name="img_url"
+    value="{{ form.img_url.data }}"
+    required
+  />
+</div>
+
 <!--------- tags -------------->
       {% if not isEmpty %}
       <div class="enter">

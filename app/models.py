@@ -6,6 +6,7 @@ class Movie(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(255), nullable=False)
   release_year = db.Column(db.String(4))
+  img_url = db.Column(db.String(255), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
   user = db.relationship('User', back_populates='movies')
@@ -15,7 +16,6 @@ class Tag(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(255), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
 
   user = db.relationship('User', back_populates='tags')
   movies = db.relationship('Movie', secondary='movie_tags', back_populates='tags')

@@ -12,6 +12,7 @@ from flask_login import current_user
 class MovieForm(FlaskForm):
   title = StringField('Title')
   release_year = StringField('Release Year)')
+  img_url = StringField("Image Address")
 
   tags = QuerySelectMultipleField('Tags',
     query_factory=lambda: Tag.query.filter_by(user_id=current_user.id), get_label='name')

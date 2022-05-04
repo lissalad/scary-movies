@@ -17,7 +17,8 @@
       <a
         href="{{ url_for('movies.show', id=movie.id) }}"
         class="movie">
-        <p class="">{{ movie.title }} ({{ movie.release_year }})</p>
+        <img width="150" src="{{ movie.img_url }}" />
+        <p class="mt-1">{{ movie.title }} ({{ movie.release_year }})</p>
       </a>
     {% endfor %}
   </div>
