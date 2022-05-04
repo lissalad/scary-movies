@@ -1,6 +1,8 @@
 {% extends 'layouts/base.html' %} {% block content %}
 
 <div class="flex flex-col items-center py-10">
+
+<!--------- logged in -------------->
   {% if current_user.is_authenticated %}
   <div class="text-center">
     <p class="text-[60px] text-center">Welcome back {{ current_user.name }}!</p>
@@ -19,6 +21,7 @@
   </div>
   {% endif %}
 
+<!--------- NOT logged in -------------->
   {% if not current_user.is_authenticated %}
   <div>
     <p class="text-[30px] text-center w-[600px]">Are all the ghosts and ghouls of movies getting jumbled in your head?</p>

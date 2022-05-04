@@ -1,31 +1,45 @@
 {% extends "layouts/base.html" %} {% block content %}
-<!-- <form class="bg-slate-300/70 rounded-lg h-fit w-fit p-4 flex flex-col text-black space-y-2" method="POST"> -->
-<form method="POST">
-  <p class="title">Login</p>
+<main>
+  <form method="POST">
 
-  <div class="inputs">
-    <div class="enter">
-      <label>Email</label>
-      <input class="input text-black" type="email" name="email" required/>
-   </div>
+<!--------- title -------------->
+    <p class="title">Login</p>
 
-   <div class="enter">
-    <label>Password</label>
-     <input class="input text-black" type="password" name="password" required/>     
-   </div>
+<!--------- email -------------->
+    <div class="inputs">
+      <div class="enter">
+        <label>Email</label>
+        <input class="input text-black" type="email" name="email" required />
+      </div>
 
-    <div class="text-sm">
-      <label>
-        <input type="checkbox" name="remember" />
-        Remember me
-      </label>
+<!--------- password -------------->
+      <div class="enter">
+        <label>Password</label>
+        <input
+          class="input text-black"
+          type="password"
+          name="password"
+          required
+        />
+      </div>
+
+<!--------- remember me -------------->
+      <div class="text-sm">
+        <label>
+          <input type="checkbox" name="remember" />
+          Remember me
+        </label>
+      </div>
     </div>
-  </div>
 
-  <button class="button">Login</button>
+<!--------- log in -------------->
+    <button class="button">Login</button>
 
-  <a class="text-center text-sm" href="{{ url_for('auth.signup') }}"> Dont't have an account? <br>Sign up! </a>
+<!--------- don't have an acc? -------------->
+    <a class="text-center text-sm" href="{{ url_for('auth.signup') }}">
+      Dont't have an account? <br />Sign up!
+    </a>
 
-</form>
-
+  </form>
+</main>
 {% endblock %}

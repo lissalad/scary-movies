@@ -1,24 +1,22 @@
 {% extends 'layouts/base.html' %} {% block content %}
+<main>
+  <form method="POST" action="{{ url_for('tags.new') }}">
+    {{ form.csrf_token }}
 
-<form method="POST" action="{{ url_for('tags.new') }}">
-  {{ form.csrf_token }}
-
+<!--------- title -------------->
     <p class="title">New Tag</p>
 
     <div class="inputs">
+<!--------- tag name -------------->
       <div class="enter">
         <label>Name</label>
-
-        <input
-          class="input text-black"
-          type="text"
-          name="name"
-          required
-        />
+        <input class="input text-black" type="text" name="name" required />
       </div>
     </div>
 
+<!--------- save and delete -------------->
     <button class="button">Save</button>
-</form>
 
+  </form>
+</main>
 {% endblock %}

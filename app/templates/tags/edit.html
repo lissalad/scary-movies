@@ -1,24 +1,37 @@
 {% extends 'layouts/base.html' %} {% block content %}
+<main>
+  <form method="POST">
+    {{ form.csrf_token }}
 
-<form method="POST">
-  {{ form.csrf_token }}
-  <p class="title">Edit Tag</p>
+<!--------- title -------------->
+    <p class="title">Edit Tag</p>
 
-  <div class="inputs">
-    <div class="enter">
-      <label>Name</label>
+    <div class="inputs">
 
-      <input class="input text-black" type="text" name="name" value="{{ form.name.data }}"
-      required />
+<!--------- tag name -------------->
+      <div class="enter">
+        <label>Name</label>
+        <input
+          class="input text-black"
+          type="text"
+          name="name"
+          value="{{ form.name.data }}"
+          required
+        />
+      </div>
+
     </div>
-  </div>
-  
-  <div class="button-pair">
-    <a class="button bg-rose-600 py-1" href="{{ url_for('tags.delete', id=tag.id) }}"
-      >Delete</a
-    >
-    <button class="button">Save</button>
-  </div>
-</form>
+
+<!--------- save and delete -------------->
+    <div class="button-pair">
+      <a
+        class="button bg-rose-600 py-1"
+        href="{{ url_for('tags.delete', id=tag.id) }}"
+        >Delete</a
+      >
+      <button class="button">Save</button>
+    </div>
+  </form>
+</main>
 
 {% endblock %}

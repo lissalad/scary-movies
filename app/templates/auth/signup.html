@@ -1,38 +1,43 @@
 {% extends "layouts/base.html" %} {% block content %}
-<form class="" method="POST" action="/signup">
-  <p class="title">Sign Up</p>
+<main>
+  <form class="" method="POST" action="/signup">
 
-  <div class="inputs pt-2">
-    <div class="enter">
-      <label>Email</label>
-      <input class="input text-black" type="email" name="email" required />
+<!--------- sign up -------------->
+    <p class="title">Sign Up</p>
+
+<!--------- email -------------->
+    <div class="inputs pt-2">
+      <div class="enter">
+        <label>Email</label>
+        <input class="input text-black" type="email" name="email" required />
+      </div>
+
+<!--------- name -------------->
+      <div class="enter">
+        <label>Name</label>
+        <input class="input text-black" type="text" name="name" required />
+      </div>
+
+<!--------- password -------------->
+      <div class="enter">
+        <label>Password</label>
+        <input
+          class="input text-black"
+          type="password"
+          name="password"
+          required
+        />
+      </div>
     </div>
 
-    <div class="enter">
-      <label>Name</label>
-      <input
-        class="input text-black"
-        type="text"
-        name="name"
-        required
-      />
-    </div>
+<!--------- sign up -------------->
+    <button class="button">Sign Up</button>
 
-    <div class="enter">
-      <label>Password</label>
-      <input
-        class="input text-black"
-        type="password"
-        name="password"
-        required
-      />
-    </div>
-  </div>
-
-  <button class="button">Sign Up</button>
-
-  <a class="text-center text-sm" href="{{ url_for('auth.login') }}">
-    Already have an account? <br />Log in!
-  </a>
-</form>
+<!--------- already have an acc? -------------->
+    <a class="text-center text-sm" href="{{ url_for('auth.login') }}">
+      Already have an account? <br />Log in!
+    </a>
+    
+  </form>
+</main>
 {% endblock %}

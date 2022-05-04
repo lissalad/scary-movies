@@ -1,7 +1,7 @@
 {% extends 'layouts/base.html' %} {% block content %}
 <main>
 
-  <!--------- title -------------->
+  <!--------- tag name -------------->
   <div class="flex flex-row w-full justify-center items-end">
     <p class="title text-3xl w-fit">{{ tag.name }}</p>
     <a class="button bg-purple-800 my-0" href="{{ url_for('tags.edit', id=tag.id) }}">edit</a>
