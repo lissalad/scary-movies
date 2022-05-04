@@ -10,12 +10,14 @@
   </head>
 
   <body class="bg-[url('/static/images/tv.jpg')] bg-cover bg-fixed text-white">
-    {% include "partials/header.html" %}
     {% with messages = get_flashed_messages() %} {% if messages %}
-    <div class="notification is-danger">
-      {{ messages[0] }}
-    </div>
+      <div class="w-full bg-purple-800/30 text-white text-center py-4 absolute bottom-0 backdrop-blur">
+        {{ messages[0] }}
+      </div>
     {% endif %} {% endwith %}
+
+    {% include "partials/header.html" %}
+
   {% block content %}{% endblock %}
     {% include "partials/woman.html" %}
   </body>

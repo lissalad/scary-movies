@@ -31,7 +31,7 @@
 }
 
 .movie {
-  margin: 30px;
+  margin: 1rem;
   border-radius: 2px;
   background-color: rgba(87, 48, 124, 0.816);
   width: 150px;
@@ -87,15 +87,17 @@ a:hover {
   flex-direction: row;
   justify-content: left;
   flex-wrap: wrap;
-  margin: 1vh 0;
+  /* margin: 1vh 0; */
 }
 
 main {
-  max-width: 1400px;
+  max-width: 1500px;
   display:flex;
   flex-direction: column;
   margin: 3rem 5rem;
   align-items: center;
+  margin: 4rem auto;
+  padding: 0 3rem;
 }
 
 form {
