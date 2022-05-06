@@ -61,7 +61,7 @@ def edit(id):
     if request.method == 'POST':
       movie.title = form.title.data
       movie.release_year = form.release_year.data
-      img_url=form.img_url.data,
+      movie.img_url=form.img_url.data,
       movie.tags = form.tags.data
 
       print(form.tags)

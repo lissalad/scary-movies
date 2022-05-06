@@ -2,9 +2,9 @@
 <main>
 
   <!--------- tag name -------------->
-  <div class="flex flex-row w-full justify-center items-end">
+  <div class="flex flex-row w-full justify-center items-center">
     <p class="text-3xl w-fit">{{ tag.name }}</p>
-    <a class="button bg-purple-800 my-0" href="{{ url_for('tags.edit', id=tag.id) }}">edit</a>
+    <a class="button bg-purple-800 my-0" href="{{ url_for('tags.edit', id=tag.id) }}">rename</a>
   </div>
 
   <!--------- movies -------------->
@@ -13,7 +13,8 @@
       <a
         href="{{ url_for('movies.show', id=movie.id) }}"
         class="movie">
-        <p class="">{{ movie.title }} ({{ movie.release_year }})</p>
+        <img width="150" src="{{ movie.img_url }}" />
+        <p class="mt-1">{{ movie.title }} ({{ movie.release_year }})</p>
       </a>
     {% endfor %}
   </div>
