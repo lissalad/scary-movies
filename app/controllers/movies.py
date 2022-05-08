@@ -27,6 +27,10 @@ def new():
         release_year=form.release_year.data,
         img_url=form.img_url.data,
         tags=form.tags.data,
+        last_watched=form.last_watched.data,
+        director=form.director.data,
+        budget=form.budget.data,
+        box_office=form.box_office.data,
         user_id=current_user.id,
       )
       db.session.add(new_movie)

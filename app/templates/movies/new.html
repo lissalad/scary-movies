@@ -1,33 +1,75 @@
 {% extends 'layouts/base.html' %} {% block content %}
 <main>
-  <form class="w-[240px]" method="POST">
+  <form class="w-fit" method="POST">
     <!-- {{ form.csrf_token }} -->
 
-<!--------- title -------------->
+    <!--------- title -------------->
     <p class="title">New Movie</p>
 
     <div class="inputs">
+      <!-- row1 -->
+      <div class="flex flex-row">
+        <!--------- movie title -------------->
+        <div class="enter">
+          <label>Title</label>
+          <input
+            class="input text-black w-[270px]"
+            type="text"
+            name="title"
+            required
+          />
+        </div>
 
-<!--------- movie title -------------->
-      <div class="enter">
-        <label>Title</label>
-        <input class="input text-black" type="text" name="title" required />
       </div>
 
-<!--------- release year -------------->
-      <div class="enter">
-        <label>Release Year</label>
-        <input
-          class="input text-black"
-          type="number"
-          name="release_year"
-          min="1900"
-          max="9999"
-        />
+      <div class="flex flex-row space-x-6">
+        <!--------- release year -------------->
+        <div class="enter">
+          <label>Year</label>
+          <input
+            class="input text-black"
+            type="number"
+            name="release_year"
+            min="1900"
+            max="9999"
+          />
+        </div>
+        <!--------- runtime -------------->
+        <!-- <div class="enter">
+          <label>Runtime</label>
+          <input class="input text-black w-[90px]" type="text" name="runtime" />
+        </div> -->
+
+        <!--------- rated -------------->
+        <div class="enter">
+          <!-- <label>Rated</label>
+          <input class="input text-black w-[60px]" type="text" name="rated" />
+        </div>
+      </div> -->
+
+      <div class="flex flex-row space-x-6"></div>
+      <!--------- director -------------->
+      <!-- <div class="enter">
+        <label>Director</label>
+        <input class="input text-black" type="text" name="director" />
+      </div> -->
+
+      <div class="flex flex-row space-x-8">
+        <!--------- budget -------------->
+        <!-- <div class="enter">
+          <label>Budget</label>
+          <input class="input text-black" type="number" name="budget" />
+        </div> -->
+
+        <!--------- box office -------------->
+        <!-- <div class="enter">
+          <label>Box Office</label>
+          <input class="input text-black" type="number" name="box_office" />
+        </div> -->
       </div>
 
-<!--------- image url  -------------->
-<div class="enter">
+      <!--------- image url  -------------->
+      <!-- <div class="enter">
   <label>Image Address</label>
   <input
     class="input text-black"
@@ -35,10 +77,10 @@
     name="img_url"
     required
   />
-</div>
+</div> -->
 
-<!--------- tags -------------->
-      {% if not isEmpty %}
+      <!--------- tags -------------->
+      <!-- {% if not isEmpty %}
       <div class="enter">
         <label class="mb-1" for="tags">Tags</label>
         <select class="" name="tags" multiple>
@@ -49,11 +91,10 @@
           {% endfor %}
         </select>
       </div>
-      {% endif %}
-
+      {% endif %} -->
     </div>
 
-<!--------- save -------------->
+    <!--------- save -------------->
     <button class="button">Save</button>
   </form>
 </main>

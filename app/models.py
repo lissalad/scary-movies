@@ -7,6 +7,12 @@ class Movie(db.Model):
   title = db.Column(db.String(255), nullable=False)
   release_year = db.Column(db.String(4))
   img_url = db.Column(db.String(255), nullable=False)
+
+  last_watched = db.Column(db.Date)
+  director = db.Column(db.String(255))
+  budget = db.Column(db.Integer)
+  box_office = db.Column(db.Integer)
+
   user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
   user = db.relationship('User', back_populates='movies')
