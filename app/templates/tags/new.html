@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %} {% block content %}
+{% extends 'layouts/background.html' %} {% block content %}
 <main>
   <form method="POST" action="{{ url_for('tags.new') }}">
     {{ form.csrf_token }}

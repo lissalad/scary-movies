@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horror Collect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body class="bg-[url('/static/images/forest.jpg')] bg-cover bg-fixed text-white flex flex-col h-full items-center md:pt-24">
+    {% with messages = get_flashed_messages() %} {% if messages %}
+      <div class="w-full bg-purple-800/30 text-white text-center py-4 fixed bottom-0 backdrop-blur">
+        {{ messages[0] }}
+      </div>
+    {% endif %} {% endwith %}
+
+
+  {% block content %}{% endblock %}
+  </body>
+
+  <style>
+    @font-face {
+      font-family: horrorFont;
+      src: url(/static/fonts/horror.woff);
+    }
+  </style>
+</html>

@@ -1,4 +1,4 @@
-{% extends "layouts/base.html" %} {% block content %}
+{% extends 'layouts/background.html' %} {% block content %}
 <main>
   <form class="" method="POST" action="/signup">
 
@@ -34,7 +34,7 @@
     <button class="button">Sign Up</button>
 
 <!--------- already have an acc? -------------->
-    <a class="text-center text-sm" href="{{ url_for('auth.login') }}">
+    <a class="text-center text-sm pb-2" href="{{ url_for('auth.login') }}">
       Already have an account? <br />Log in!
     </a>
     

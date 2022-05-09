@@ -1,4 +1,4 @@
-{% extends 'layouts/base.html' %} {% block content %}
+{% extends 'layouts/background.html' %} {% block content %}
 
 <main>
   <form class="w-[240px]" method="POST">
@@ -36,7 +36,7 @@
       </div>
 
 <!--------- image url  -------------->
-<div class="enter">
+<!-- <div class="enter">
   <label>Image Address</label>
   <input
     class="input text-black"
@@ -45,7 +45,7 @@
     value="{{ form.img_url.data }}"
     required
   />
-</div>
+</div> -->
 
 <!--------- tags -------------->
       {% if not isEmpty %}
