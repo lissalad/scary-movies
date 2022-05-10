@@ -6,7 +6,7 @@ class Movie(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(255), nullable=False)
   release_year = db.Column(db.String(4))
-  img_url = db.Column(db.String(255), nullable=False)
+  img_url = db.Column(db.Text, nullable=False)
 
   last_watched = db.Column(db.Date)
   director = db.Column(db.String(255))

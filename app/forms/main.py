@@ -1,6 +1,4 @@
 from sqlite3 import Date
-from tkinter import N
-from tkinter.tix import Select
 from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField, DateField, SelectField, SubmitField, IntegerField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField, QuerySelectMultipleField
