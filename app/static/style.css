@@ -95,20 +95,20 @@ h1 {
 
 main {
   max-width: 1500px;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  margin: 3rem 5rem;
   /* align-items: center; */
-  margin: 1rem 0;
-  padding: 0 3rem;
+  margin: 3vh 2vw;
+  /* padding: 0 3rem; */
+  /* background-color: black; */
 }
 
 form {
   background-color: rgba(30, 30, 30, 0.786);
   border-radius: 3px;
   padding: 4px;
-  width:fit-content;
-  display:flex;
+  width: fit-content;
+  display: flex;
   flex-direction: column;
   padding: 10px;
   align-items: center;

@@ -15,31 +15,31 @@ def index():
 @movies.route('/movies/new', methods=['GET', 'POST'])
 @login_required
 def new():
-    form = MovieForm()
-    isEmpty = True
-    if len(current_user.tags) > 0:
-      isEmpty = False
-      print("not empty!")
+  form = MovieForm()
+  isEmpty = True
+  if len(current_user.tags) > 0:
+    isEmpty = False
+    print("not empty!")
 
-    if request.method == 'POST':
-      new_movie = Movie(
-        title=form.title.data,
-        release_year=form.release_year.data,
-        img_url=form.img_url.data,
-        tags=form.tags.data,
-        last_watched=form.last_watched.data,
-        director=form.director.data,
-        budget=form.budget.data,
-        box_office=form.box_office.data,
-        user_id=current_user.id,
-      )
-      db.session.add(new_movie)
-      db.session.commit()
-      
-      flash('new movie created')
-      return redirect(url_for('movies.show', id=new_movie.id))
-    # flash('failed to create movie')
-    return render_template('movies/new.html', form=form, isEmpty=isEmpty)
+  if request.method == 'POST':
+    new_movie = Movie(
+      title=form.title.data,
+      release_year=form.release_year.data,
+      img_url=form.img_url.data,
+      tags=form.tags.data,
+      last_watched=form.last_watched.data,
+      director=form.director.data,
+      budget=form.budget.data,
+      box_office=form.box_office.data,
+      user_id=current_user.id,
+    )
+    db.session.add(new_movie)
+    db.session.commit()
+    
+    flash('new movie created')
+    return redirect(url_for('movies.show', id=new_movie.id))
+  # flash('failed to create movie')
+  return render_template('movies/new.html', form=form, isEmpty=isEmpty)
 
 @movies.route('/movies/<id>', methods=['GET'])
 @login_required
