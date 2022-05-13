@@ -54,6 +54,7 @@ def show(id):
 @movies.route('/movies/<id>/edit', methods=['GET', 'POST'])
 @login_required
 def edit(id):
+
   movie=Movie.query.get(id)
   if movie in current_user.movies:
     form = MovieForm(obj=movie)
@@ -65,7 +66,7 @@ def edit(id):
     if request.method == 'POST':
       movie.title = form.title.data
       movie.release_year = form.release_year.data
-      movie.img_url=form.img_url.data,
+      movie.img_url=form.img_url.data
       movie.tags = form.tags.data
 
       print(form.tags)
@@ -73,10 +74,8 @@ def edit(id):
       db.session.add(movie)
       db.session.commit()
 
-
       flash('movie updated')
-      return redirect(url_for('movies.show', form=form, id=movie.id))
-    # flash('failed to update movie')
+      return redirect(url_for('movies.show', id=movie.id))
     return render_template('movies/edit.html', form=form, movie=movie, isEmpty=isEmpty)
   else:
     flash('that is not yours')
